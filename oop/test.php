@@ -25,8 +25,5 @@ public function getSpeed(){
 
 
 }
-$car1 = new car(20);
-$car1->accelerate(200);
-echo $car1->getSpeed();
 
 ?>
