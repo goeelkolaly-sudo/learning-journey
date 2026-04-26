@@ -1,6 +1,8 @@
 <?php
 require_once "../app/Core/Controller.php";
 require_once "../app/Models/Students.php";
+require_once "../app/Models/Department.php";
+
 
 class StudentController extends Controller
 {
@@ -37,6 +39,10 @@ class StudentController extends Controller
 
             return "success";
         }
+
+        // $model = new Department();
+        // $departments = $model->getAll();
+
 
         $this->view("students/create");
     }

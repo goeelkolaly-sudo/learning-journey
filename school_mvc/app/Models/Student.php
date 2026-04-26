@@ -10,6 +10,7 @@
     private $email;
     private $phone;
     private $department_id;
+    private $grade;
     private $image;
 
     public function __construct(){
@@ -38,6 +39,14 @@
 
     public function setEmail($email){
         $this->email = $email;
+    }
+
+    public function getgrade(){
+        return $this->grade;
+    }
+
+    public function setgrade($grade){
+        $this->grade = $grade;
     }
 
     
@@ -121,6 +130,48 @@
         return $stmt->execute(['id' => $studentId]);
 
     }
+
+
+    public function getGradeGpa(){
+        $stmt = $this->db->prepare("SELECT grade FROM students WHERE id = :id");
+        $stmt->execute(['id' => $this->id ]);
+
+        $grade = $stmt->fetch(PDO::FETCH_ASSOC)['grade'];
+
+        if($grade == 'A+'){
+            return 4.00;
+        }
+        else if ($grade == 'A-'){
+            return 3.60;
+        }
+        else if ($grade == 'B+'){
+            return 3.40;
+        }
+        else if ($grade == 'B'){
+            return 3.20;
+        }
+        else if ($grade == 'B-'){
+            return 3.00;
+        }
+        else if ($grade == 'C+'){
+            return 2.80;
+        }
+        else if ($grade == 'C'){
+            return 2.60;
+        }
+        else if ($grade == 'C-'){
+            return 2.40;
+        }
+        else  {
+            return '';
+        }
+
+    
+
+
+
+    }
+
 
  }
 ?>
