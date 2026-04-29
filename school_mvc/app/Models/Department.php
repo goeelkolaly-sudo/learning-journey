@@ -65,10 +65,10 @@
         ]);
     }
 
-    public function delete ($departmentId){
+    public function delete (){
         $stmt = $this->db->prepare("DELETE FROM departments WHERE id = :id");
 
-        return $stmt->execute(['id' => $departmentId]);
+        return $stmt->execute(['id' => $this->id]);
 
     }
 

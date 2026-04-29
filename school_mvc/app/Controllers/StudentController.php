@@ -18,6 +18,8 @@ class StudentController extends Controller
     public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $errors = [];
+            
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $email = $_POST['email'];
@@ -25,6 +27,23 @@ class StudentController extends Controller
             $image = $_POST['image'];
 
             // validat
+            if($name == ''){
+                $errors[] = 'name field is req';
+            }
+
+            if($phone == ''){
+                $errors[] = 'phone field is req';
+            }
+
+            if($email == ''){
+                $errors[] = 'email field is req';
+            }
+
+            if($department_id == ''){
+                $errors[] = 'department_id field is req';
+            }
+
+            if (empty($errors)){ 
 
             $student = new Student();
             $student->setName($name);
@@ -33,6 +52,7 @@ class StudentController extends Controller
             $student->setdepartmentId($department_id);
             $student->setimage($image);
             $student->save();
+            }
 
 
 
@@ -40,8 +60,11 @@ class StudentController extends Controller
             return "success";
         }
 
-        // $model = new Department();
-        // $departments = $model->getAll();
+
+
+
+        $model = new Department();
+        $departments = $model->getAll();
 
 
         $this->view("students/create");
