@@ -5,7 +5,7 @@ abstract class BaseMember {
  
 public function __construct($name){
     $this->name = $name;
-   return "successful register";
+   return "successful ";
 }
 
 
