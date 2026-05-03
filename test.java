@@ -1,6 +1,5 @@
 
-//yousef elsayed mohamed   sec3
-//quiz lec 
+//وليد علي عبد الرافع
 
 import java.util.Scanner;
 
