@@ -26,7 +26,5 @@ class StudentsController extends Controller
         
     }
 
-     public function delete(){
-        
-    }
+     
 }
